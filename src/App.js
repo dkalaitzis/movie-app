@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MovieListHeading from './components/MovieListHeading';
+import SearchBar from './components/SearchBar';
 
-function App() {
+const App = () => {
+  // create variable movies that holds some movies that we get from the api
+  const [movies, setMovies] = useState([]);
+  //create another state for the search input
+  const [searchValue, setSearchValue] = useState('');
+
+
+  const getMovieRequest = async (searchValue) => {
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=491682b0`
+    
+    const response = await fetch(url);
+    const responseJson = await response.json();
+
+    if (responseJson.Search) {
+      setMovies(responseJson.Search);
+    } 
+    else {
+      setMovies([])
+    }
+  };
+
+  // hook, [] means getMovieRequest is called when the page loads
+  // when the app loads, useEffect hooks always called on the first render
+  // when searchValue changes, the useEffect hook is triggered.
+  useEffect(()=>{
+    getMovieRequest(searchValue);
+  }, [searchValue]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // MovieList component where we pass our movies to
+    <div className='container-fluid App'>
+      <div className='row'>
+        <MovieListHeading heading = 'MooveeZ' />
+      </div>
+      <div className='row justify-content-center'>
+        <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} movies = {movies} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
