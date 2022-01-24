@@ -32,3 +32,6 @@
   overflow: auto;
 }
 
+.search-bar-dropdown input{
+  border-radius: 30px;
+}

@@ -1,16 +1,29 @@
 import React from "react";
-import IoSearch from 'react-icons/io5';
+import { BsXCircleFill } from "react-icons/bs";
+
+const handleCancelClick = () => {
+  console.log("hi")
+}
 
 const SearchBar = (props) => {
   return (
     <div className="search-bar-dropdown col col-sm-4">
-      <input
-        className="form-control"
-        value={props.value}
-        onChange={(event) => props.setSearchValue(event.target.value)}
-        placeholder="Type to search..."
-      ></input>
-      <div className="searchIcon"><IoSearch /></div>
+      <div className="col">
+        <input
+          className="form-control"
+          value={props.value}
+          onChange={(event) => props.setSearchValue(event.target.value)}
+          placeholder="Type to search..."
+        >
+          </input>
+      </div>
+
+      <div className="col cancel-button" onClick={handleCancelClick}>
+        {" "}
+        <BsXCircleFill />
+        {" "}
+      </div>
+
       <ul className="list-group">
         {props.movies.map((movie, index) => (
           <button
