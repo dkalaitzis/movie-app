@@ -16,6 +16,9 @@ const Home = () => {
     const response = await fetch(url);
     const responseJson = await response.json();
 
+    console.log("responseJson", responseJson)
+    console.log(".Search", responseJson.Search)
+
     if (responseJson.Search) {
       setMovies(responseJson.Search);
     } 
@@ -32,7 +35,7 @@ const Home = () => {
   }, [searchValue]);
 
   return (
-    <div className='container-fluid App'>
+    <div className='container-fluid home'>
       <div className='row'>
         <MovieListHeading heading = 'MooveeZ' />
       </div>
