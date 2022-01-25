@@ -1,5 +1,6 @@
 import React from "react";
 import { BsXCircleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 
 const SearchBar = (props) => {
@@ -22,8 +23,8 @@ const SearchBar = (props) => {
 
       <ul className="list-group">
         {props.movies.map((movie, index) => (
-          <button
-            type="button"
+          <Link
+            to={`/movies/${movie.imdbID}`}
             className="list-group-item list-group-item-action"
           >
             <div className="row">
@@ -56,7 +57,7 @@ const SearchBar = (props) => {
                 </div>
               </div>
             </div>
-          </button>
+          </Link>
         ))}
       </ul>
     </div>
