@@ -32,6 +32,12 @@
   overflow: auto;
 }
 
-.search-bar-dropdown input{
-  border-radius: 30px;
+.cancel-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.search-wrapper {
+  position: relative;
 }

@@ -1,27 +1,23 @@
 import React from "react";
 import { BsXCircleFill } from "react-icons/bs";
 
-const handleCancelClick = () => {
-  console.log("hi")
-}
 
 const SearchBar = (props) => {
   return (
     <div className="search-bar-dropdown col col-sm-4">
-      <div className="col">
+      <div className="col search-wrapper">
         <input
           className="form-control"
-          value={props.value}
+          value={props.searchValue}
           onChange={(event) => props.setSearchValue(event.target.value)}
           placeholder="Type to search..."
-        >
-          </input>
-      </div>
-
-      <div className="col cancel-button" onClick={handleCancelClick}>
-        {" "}
-        <BsXCircleFill />
-        {" "}
+        ></input>
+        {/* show (X) only when there is input and onClick clear the input */}
+        {props.searchValue !== "" && (
+          <div className="cancel-button" onClick={() => props.setSearchValue("")}>
+            <BsXCircleFill />
+          </div>
+        )}
       </div>
 
       <ul className="list-group">

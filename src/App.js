@@ -13,7 +13,6 @@ const App = () => {
 
   const getMovieRequest = async (searchValue) => {
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=491682b0`
-    
     const response = await fetch(url);
     const responseJson = await response.json();
 
@@ -33,7 +32,6 @@ const App = () => {
   }, [searchValue]);
 
   return (
-    // MovieList component where we pass our movies to
     <div className='container-fluid App'>
       <div className='row'>
         <MovieListHeading heading = 'MooveeZ' />
