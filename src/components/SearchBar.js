@@ -23,6 +23,7 @@ const SearchBar = (props) => {
 
       <ul className="list-group">
         {props.movies.map((movie, index) => (
+          <li key={movie.imdbID}>
           <Link
             to={`/movies/${movie.imdbID}`}
             className="list-group-item list-group-item-action"
@@ -58,6 +59,7 @@ const SearchBar = (props) => {
               </div>
             </div>
           </Link>
+          </li>
         ))}
       </ul>
     </div>
