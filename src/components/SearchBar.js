@@ -67,12 +67,10 @@ const SearchBar = (props) => {
                   </div>
 
                   <motion.div className="row"
-                    animate = {{ x:5, scale: 1.03, opacity: 1 }}
+                    animate = {{ scale: [0.5, 1], opacity: 1 }}
                     initial= {{ opacity: 0 }}
                     transition={{
-                      repeat: 1,
-                      repeatType: "reverse",
-                      duration: 0.6,
+                      duration: 1,
                       opacity: 1
                     }}
                     
