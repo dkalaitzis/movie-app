@@ -1,7 +1,7 @@
 import React from "react";
 import { BsXCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 
 const SearchBar = (props) => {
   return (
@@ -15,7 +15,10 @@ const SearchBar = (props) => {
         ></input>
         {/* show (X) only when there is input and onClick clear the input */}
         {props.searchValue !== "" && (
-          <div className="cancel-button" onClick={() => props.setSearchValue("")}>
+          <div
+            className="cancel-button"
+            onClick={() => props.setSearchValue("")}
+          >
             <BsXCircleFill />
           </div>
         )}
@@ -24,41 +27,62 @@ const SearchBar = (props) => {
       <ul className="list-group">
         {props.movies.map((movie, index) => (
           <li key={movie.imdbID}>
-          <Link
-            to={`/movies/${movie.imdbID}`}
-            className="list-group-item list-group-item-action"
-          >
-            <div className="row">
-              <div className="col-3">
-                <div className="movie-icon">
-                  <img
-                    src={movie.Poster}
-                    alt={movie.imdbID}
-                    width="100"
-                    height="120"
-                  ></img>
+            <Link
+              to={`/movies/${movie.imdbID}`}
+              className="list-group-item list-group-item-action"
+            >
+              <div className="row">
+                <div className="col-3">
+                  <motion.div
+                    className="movie-icon"
+                    animate={{ x: 2, opacity: 1 }}
+                    transition={{ type: "tween", stiffness: 100, delay: 0.2 }}
+                    initial={{ opacity: 0, x: -20 }}
+                  >
+                    <img
+                      src={movie.Poster}
+                      alt={movie.imdbID}
+                      width="100"
+                      height="120"
+                    ></img>
+                  </motion.div>
                 </div>
+
+                <motion.div
+                  className="col-9"
+                  animate={{ x: 20, opacity: 1 }}
+                  transition={{ type: "tween", stiffness: 100 }}
+                  initial={{ opacity: 0, x: -30 }}
+                >
+                  <div className="row">
+                    <div className="movie-title">{movie.Title}</div>
+                  </div>
+
+                  <div className="row">
+                    <div className="movie-type">Type: {movie.Type}</div>
+                  </div>
+
+                  <div className="row">
+                    <div className="imdb-id">IMDB ID: {movie.imdbID}</div>
+                  </div>
+
+                  <motion.div className="row"
+                    animate = {{ x:5, scale: 1.03, opacity: 1 }}
+                    initial= {{ opacity: 0 }}
+                    transition={{
+                      repeat: 1,
+                      repeatType: "reverse",
+                      duration: 0.6,
+                      opacity: 1
+                    }}
+                    
+                  >
+                    <div className="movie-year">Release Year: {movie.Year}</div>
+                  </motion.div>
+                  
+                </motion.div>
               </div>
-
-              <div className="col-9">
-                <div className="row">
-                  <div className="movie-title">{movie.Title}</div>
-                </div>
-
-                <div className="row">
-                  <div className="movie-type">Type: {movie.Type}</div>
-                </div>
-
-                <div className="row">
-                  <div className="movie-year">Release Year: {movie.Year}</div>
-                </div>
-
-                <div className="row">
-                  <div className="imdb-id">IMDB ID: {movie.imdbID}</div>
-                </div>
-              </div>
-            </div>
-          </Link>
+            </Link>
           </li>
         ))}
       </ul>
