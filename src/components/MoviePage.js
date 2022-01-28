@@ -9,6 +9,7 @@ const MoviePage = (props) => {
   const [movie, setMovie] = useState({});
 
   const getMovieByImdbiD = async (imdbID) => {
+    // Key should be in .env
     const url = `http://www.omdbapi.com/?i=${imbdID}&apikey=491682b0`;
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -29,7 +30,10 @@ const MoviePage = (props) => {
 
   return (
     <div className="container-fluid movie-page">
-      <Link to={`/`} className="btn back-button"> <BiArrowBack /> Back </Link>
+      <Link to={`/`} className="btn back-button">
+        {" "}
+        <BiArrowBack /> Back{" "}
+      </Link>
       <div className="col movie-container">
         <div className="movie-img">
           <img

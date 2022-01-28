@@ -66,18 +66,17 @@ const SearchBar = (props) => {
                     <div className="imdb-id">IMDB ID: {movie.imdbID}</div>
                   </div>
 
-                  <motion.div className="row"
-                    animate = {{ scale: [0.5, 1], opacity: 1 }}
-                    initial= {{ opacity: 0 }}
+                  <motion.div
+                    className="row"
+                    animate={{ scale: [0.5, 1], opacity: 1 }}
+                    initial={{ opacity: 0 }}
                     transition={{
                       duration: 1,
-                      opacity: 1
+                      opacity: 1,
                     }}
-                    
                   >
                     <div className="movie-year">Release Year: {movie.Year}</div>
                   </motion.div>
-                  
                 </motion.div>
               </div>
             </Link>
