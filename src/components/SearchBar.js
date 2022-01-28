@@ -68,11 +68,10 @@ const SearchBar = (props) => {
 
                   <motion.div
                     className="row"
-                    animate={{ scale: [0.5, 1], opacity: 1 }}
-                    initial={{ opacity: 0 }}
+                    animate={{ scale: [0.5, 1], opacity: 1, x:0 }}
+                    initial={{ opacity: 0, x:-40 }}
                     transition={{
                       duration: 1,
-                      opacity: 1,
                     }}
                   >
                     <div className="movie-year">Release Year: {movie.Year}</div>

@@ -14,8 +14,6 @@ const MoviePage = (props) => {
     const response = await fetch(url);
     const responseJson = await response.json();
 
-    console.log(responseJson, "JELOO");
-
     if (responseJson) {
       setMovie((movie) => ({
         ...movie,
