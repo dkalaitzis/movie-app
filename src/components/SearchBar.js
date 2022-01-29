@@ -12,6 +12,7 @@ const SearchBar = (props) => {
           value={props.searchValue}
           onChange={(event) => props.setSearchValue(event.target.value)}
           placeholder="Type to search..."
+          data-testid="test"
         ></input>
         {/* show (X) only when there is input and onClick clear the input */}
         {props.searchValue !== "" && (
