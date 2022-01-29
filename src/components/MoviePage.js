@@ -9,7 +9,6 @@ const MoviePage = (props) => {
   const [movie, setMovie] = useState({});
 
   const getMovieByImdbiD = async (imdbID) => {
-    // Key should be in .env
     const url = `http://www.omdbapi.com/?i=${imbdID}&apikey=491682b0`;
     const response = await fetch(url);
     const responseJson = await response.json();

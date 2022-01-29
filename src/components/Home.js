@@ -5,9 +5,7 @@ import MovieListHeading from "./MovieListHeading";
 import SearchBar from "./SearchBar";
 
 const Home = () => {
-  // create variable movies that holds some movies that we get from the api
   const [movies, setMovies] = useState([]);
-  //create another state for the search input
   const [searchValue, setSearchValue] = useState("");
 
   const getMovieRequest = async (searchValue) => {
@@ -22,7 +20,6 @@ const Home = () => {
     }
   };
 
-  // hook, [] means getMovieRequest is called when the page loads
   // when the app loads, useEffect hooks always called on the first render
   // when searchValue changes, the useEffect hook is triggered.
   useEffect(() => {
