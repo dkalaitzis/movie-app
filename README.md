@@ -1,3 +1,5 @@
+clone repository, cd in the folder:
+
 Install packages:
 - npm install
 
