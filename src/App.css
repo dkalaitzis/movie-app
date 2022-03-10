@@ -1,7 +1,7 @@
 .home {
   width: 100vw;
-  height: 60vw;
-  background-image: linear-gradient(#0093e9, #80d0c7);
+  height: 100vw;
+  background-color: white;
 }
 
 .app-heading h1 {
@@ -12,71 +12,113 @@
   padding: 40px 0px 20px;
 }
 
-.image-container {
-  position: relative;
-  transition: transform 0.2s;
+
+
+
+.icon {
+  transform: scale(0.8);
+  padding-left: 5px;
 }
 
-.image-container:hover {
-  cursor: pointer;
-  transform: scale(1.1);
+
+.bg-navRed{
+  background-color: #c30006;
 }
 
-.movie-title {
-  font-size: 18px;
+#burg-nav{
+  background-color: black;
+  box-shadow: none;
+  transform: scale(0.8);
+}
+
+#gplus-icon{
+  border-radius: 10vh;
+  background-color: white;
+  border: none;
+}
+
+.second-sites-btn{
+  border: solid;
+  text-align-last: center;
+  border-radius: 12px;
+  background-color: white;
+  border-color: white;
+  color: black;
   font-weight: bold;
+  text-decoration: none;
+  width: 10vh;
+  font-size: smaller;
 }
 
-.list-group {
-  height: 80vh;
-  overflow: auto;
+.nav-content{
+  align-items: center;
 }
 
-.cancel-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.test{
+  font-weight: bold;
+  color: white;
 }
 
-.search-wrapper {
+
+
+
+
+nav {
   position: relative;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background: red;
 }
 
-.movie-page {
-  height: 80vw;
-  background-image: linear-gradient(#0093e9, #80d0c7);
-}
-
-.movie-container {
-  display: flex;
+.list {
+  list-style-type: none;
+  background: black;
   justify-content: center;
-  padding: 50px;
+  align-items: center;
+  position: relative;
+  
+}
+.items {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #f1f1f1;
+  cursor: pointer;
 }
 
-.movie-image {
-  border: 1px solid;
+.toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  padding: 5px;
+  color: #000;
+  font-size: 18px;;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
 }
 
-.description-box {
-  border: 1px solid;
-  border-left: 0;
-  padding-left: 30px;
-  padding-right: 25px;
-  border-radius: 0px 30px 30px 0px;
-  background-color: white;
-}
+.user-input{}
 
-.description-box h3 {
-  font-size: 20px;
-  font-weight: bold;
-}
 
-.title {
-  padding-bottom: 30px;
-  padding-top: 30px;
-}
-
-.back-button {
-  background-color: white;
-  margin-top: 10px;
+@media screen and (max-width: 500px){
+  .list {
+      flex-direction: column;
+      height: 50vh; 
+      overflow-y:scroll;
+      
+  }
+  .items:nth-child(1){
+      margin-top: 10px;
+  }
+  .items {
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.555);
+      text-align: center;
+      margin-right: 0px;
+      padding: 20px 0;
+  }
+  .btn {
+      display: block;
+  }
 }
